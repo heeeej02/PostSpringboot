@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Detail</title>
+</head>
+<body>
+<h1>Post Detail</h1>
+<p>ID: <span th:text="${post.id}"></span></p>
+<p>Title: <span th:text="${post.title}"></span></p>
+<p>Content: <span th:text="${post.content}"></span></p>
+<p>Create Date: <span th:text="${post.createDate}"></span></p>
+<p>Update Date: <span th:text="${post.updateDate}"></span></p>
+<a href="/post/">Back to List</a>
+</body>
+</html>

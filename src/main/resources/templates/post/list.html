@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post List</title>
+</head>
+<body>
+<h1>Post List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Create Date</th>
+        <th>Update Date</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate over posts and display them -->
+    <tr th:each="post : ${posts}">
+        <td th:text="${post.id}"></td>
+        <td th:text="${post.title}"></td>
+        <td th:text="${post.content}"></td>
+        <td th:text="${post.createDate}"></td>
+        <td th:text="${post.updateDate}"></td>
+        <td>
+            <a th:href="@{/post/{id}(id=${post.id})}">View</a>
+            <a th:href="@{/post/edit/{id}(id=${post.id})}">Edit</a>
+            <form th:action="@{/post/delete/{id}(id=${post.id})}" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- React 라이브러리를 불러옵니다. -->
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+</body>
+</html>
